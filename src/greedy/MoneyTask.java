@@ -31,7 +31,7 @@ class Task implements Comparable<Task> {
     }
 }
 
-@AlgGreedy
+@AlgGreedy(name = "Задача №1")
 public class MoneyTask {
     public static Long solve(ArrayList<Task> tasks, Integer hour) {
         Collections.sort(tasks);
