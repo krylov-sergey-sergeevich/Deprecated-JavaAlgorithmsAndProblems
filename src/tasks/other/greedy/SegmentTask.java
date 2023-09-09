@@ -1,4 +1,4 @@
-package greedy;
+package tasks.other.greedy;
 
 import utils.AlgGreedy;
 
