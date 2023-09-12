@@ -1,9 +1,6 @@
 package tasks.leetcode;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Подсчет букв и попытка итеративно удалить лишние. Неэффективно пока реализовано.
@@ -12,7 +9,7 @@ import java.util.TreeSet;
  * https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique
  */
 public class Task1647 {
-    public static int minDeletions(String s) {
+    public static int minDeletionsSlowly(String s) {
         Map<String, Integer> letterToCount = new TreeMap<>();
         for (int i = 0; i < s.length(); i++) {
             String key = s.substring(i, i + 1);
@@ -42,6 +39,36 @@ public class Task1647 {
         }
         return cnt;
     }
+
+    public static int minDeletions(String s) {
+        int[] letterCounts = new int[26]; // Массив для подсчета количества каждой буквы (a-z)
+
+        // Подсчитываем количество каждой буквы в строке
+        for (char c : s.toCharArray()) {
+            letterCounts[c - 'a']++;
+        }
+
+        Set<Integer> uniqueCounts = new HashSet<>(); // Множество для уникальных значений
+        int deletions = 0;
+
+        // Идем по массиву с количеством букв
+        for (int count : letterCounts) {
+            if (count == 0) continue; // Пропускаем отсутствующие буквы
+
+            // Пока текущее количество уже встречалось, увеличиваем удаления
+            while (uniqueCounts.contains(count)) {
+                count--;
+                deletions++;
+            }
+
+            if (count > 0) {
+                uniqueCounts.add(count);
+            }
+        }
+
+        return deletions;
+    }
+
 
     public static void main(String[] args) {
         int result = minDeletions("aab");
