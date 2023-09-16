@@ -1,4 +1,4 @@
-package tasks.leetcode.tasks300to400;
+package tasks.leetcode.tasks0300to0400;
 
 /**
  * Применено Динамическое программирование.

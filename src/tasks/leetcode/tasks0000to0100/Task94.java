@@ -1,4 +1,4 @@
-package tasks.leetcode.tasks0to100;
+package tasks.leetcode.tasks0000to0100;
 
 import java.util.ArrayList;
 import java.util.Collections;
