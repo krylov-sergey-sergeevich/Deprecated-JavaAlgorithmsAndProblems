@@ -7,7 +7,7 @@ class Edge {
 }
 
 // DFS
-public class Tree {
+public class DFS {
     private static List<List<Integer>> v;   // связи вершин
     private static List<Integer> d;     // глубина
     private static List<Integer> w;     // кол-во вершин в поддереве
